@@ -18,5 +18,7 @@ COPY --chown=gisuser raster_processing.ipynb .
 # Expose the JupyterLab port
 EXPOSE 8888
 
+EXPOSE 8787
+
 # Start JupyterLab
 CMD ["jupyter", "lab", "--ip=0.0.0.0"]
