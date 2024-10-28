@@ -14,7 +14,7 @@ It's recommended to pull the Docker image from Dockerhub. Otherwise, if you pref
 docker pull hamedalemo/raster-tutorial:1.1
 ```
 
-`R``
+```
 docker run -it -p 8888:8888 -p 8787:8787 hamedalemo/raster-tutorial:1.1
 ```
 
