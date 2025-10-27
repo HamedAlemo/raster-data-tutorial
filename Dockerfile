@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3:24.7.1-0
+FROM continuumio/miniconda3:25.3.1-1
 
 COPY environment.yml .
 RUN conda env create -f environment.yml
@@ -12,12 +12,11 @@ RUN useradd -m gisuser
 USER gisuser
 
 WORKDIR /home/gisuser
-COPY --chown=gisuser raster_analysis.ipynb .
-COPY --chown=gisuser raster_processing.ipynb .
 
 # Expose the JupyterLab port
 EXPOSE 8888
 
+# Expose the Dask Dashboard port
 EXPOSE 8787
 
 # Start JupyterLab

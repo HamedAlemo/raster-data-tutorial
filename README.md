@@ -8,30 +8,45 @@ You need to have Docker installed on your machine.
 
 ## Instructions
 
-It's recommended to pull the Docker image from Dockerhub. Otherwise, if you prefer, you can build your own image using the instructions in the following section. 
+Clone this repository to your local machine:
 
 ```
-docker pull hamedalemo/raster-tutorial:1.1
+git clone git@github.com:HamedAlemo/raster-data-tutorial.git
+```
+
+Change your directory to the cloned repository:
+
+```
+cd raster-data-tutorial
+```
+
+To run the container, you have two options:
+
+### Option 1 - Pull Docker image from DockerHub (Recommended):
+It's recommended to pull the Docker image from DockerHub. Otherwise, if you prefer, you can build your own image using the instructions in the following option. 
+
+```
+docker pull hamedalemo/raster-tutorial:1.2
 ```
 
 ```
-docker run -it -p 8888:8888 -p 8787:8787 hamedalemo/raster-tutorial:1.1
+docker run -it -p 8888:8888 -p 8787:8787 -v $(pwd):/home/gisuser hamedalemo/raster-tutorial:1.2
 ```
-
 
 - Copy the Jupyter Lab url and paste it in your browser. 
 - Open `raster_analysis.ipynb` and `raster_processing.ipynb`, and follow the instructions. 
 
 
-Build the Docker image:
+### Option 2 - Build your Docker image:
 
 ```
-docker build -t raster-tutorial .
+docker build -t raster-tutorial:1.2 .
 ```
 
 Run the container as following after switching to the repository's directory locally:
 ```
-docker run -it -p 8888:8888 raster-tutorial
+docker run -it -p 8888:8888 -p 8787:8787 -v $(pwd):/home/gisuser raster-tutorial:1.2
 ```
+
 - Copy the Jupyter Lab url and paste it in your browser. 
 - Open `raster_analysis.ipynb` and `raster_processing.ipynb`, and follow the instructions. 
