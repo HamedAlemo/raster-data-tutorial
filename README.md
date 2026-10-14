@@ -3,7 +3,17 @@ This repository contains an introduction to geospatial raster data processing in
 
 ## Requirements
 
-You need to have Docker installed on your machine. 
+You need to have [pixi](https://pixi.sh) installed on your machine. Follow the [installation instructions](https://pixi.sh/latest/#installation) for your operating system, for example on macOS/Linux (if you are on Windows using WSL, use this command in your WSL terminal):
+
+```
+curl -fsSL https://pixi.sh/install.sh | sh
+```
+
+or on native Windows (PowerShell, not WSL):
+
+```
+powershell -ExecutionPolicy ByPass -c "irm -useb https://pixi.sh/install.ps1 | iex"
+```
 
 
 ## Instructions
@@ -20,33 +30,15 @@ Change your directory to the cloned repository:
 cd raster-data-tutorial
 ```
 
-To run the container, you have two options:
 
-### Option 1 - Pull Docker image from DockerHub (Recommended):
-It's recommended to pull the Docker image from DockerHub. Otherwise, if you prefer, you can build your own image using the instructions in the following option. 
+Launch Jupyter Lab (running this for the first time will install the environment using the dependencies in `pixi.toml` and the exact versions pinned in `pixi.lock`):
 
 ```
-docker pull hamedalemo/raster-tutorial:1.2
+pixi run lab
 ```
 
-```
-docker run -it -p 8888:8888 -p 8787:8787 -v $(pwd):/home/gisuser hamedalemo/raster-tutorial:1.2
-```
+- Jupyter Lab will open in your browser (otherwise copy the url printed in the terminal and paste it in your browser).
+- Open `raster_analysis.ipynb` and `raster_processing.ipynb`, and follow the instructions.
+- The Dask dashboard will be available at the link printed by the Dask client (by default http://localhost:8787).
 
-- Copy the Jupyter Lab url and paste it in your browser. 
-- Open `raster_analysis.ipynb` and `raster_processing.ipynb`, and follow the instructions. 
-
-
-### Option 2 - Build your Docker image:
-
-```
-docker build -t raster-tutorial:1.2 .
-```
-
-Run the container as following after switching to the repository's directory locally:
-```
-docker run -it -p 8888:8888 -p 8787:8787 -v $(pwd):/home/gisuser raster-tutorial:1.2
-```
-
-- Copy the Jupyter Lab url and paste it in your browser. 
-- Open `raster_analysis.ipynb` and `raster_processing.ipynb`, and follow the instructions. 
+To add a new package to the environment, run `pixi add <package-name>`.
