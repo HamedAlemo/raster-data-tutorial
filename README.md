@@ -38,7 +38,7 @@ pixi run lab
 ```
 
 - Jupyter Lab will open in your browser (otherwise copy the url printed in the terminal and paste it in your browser).
-- Open `raster_analysis.ipynb` and `raster_processing.ipynb`, and follow the instructions.
+- Open `notebooks/raster_analysis.ipynb` and `notebooks/raster_processing.ipynb`, and follow the instructions. Downloaded data is stored in `data/` and the rasters the notebooks write are saved in `output/`, both in the repository root.
 - The Dask dashboard will be available at the link printed by the Dask client (by default http://localhost:8787).
 
 To add a new package to the environment, run `pixi add <package-name>`.
